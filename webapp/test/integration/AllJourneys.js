@@ -6,15 +6,19 @@ jQuery.sap.require("sap.ui.qunit.qunit-coverage");
 QUnit.config.autostart = false;
 
 sap.ui.require([
-	"sap/ui/test/Opa5"
-], function(Opa5) {
-
+	"sap/ui/test/Opa5",
+	"sap/ui/teched/appUnderTest/test/integration/pages/Common",
+	"sap/ui/teched/appUnderTest/test/integration/pages/Master"
+], function(Opa5, Common) {
 	"use strict";
 	Opa5.extendConfig({
+		arrangements: new Common(),
 		viewNamespace: "sap.ui.teched.appUnderTest.view."
 	});
 
-	sap.ui.require([], function() {
+	sap.ui.require([
+		"sap/ui/teched/appUnderTest/test/integration/SearchJourney"
+	], function() {
 		QUnit.start();
 	});
 });
