@@ -2,8 +2,9 @@ sap.ui.define([
 	"sap/ui/test/Opa5",
 	"sap/ui/test/actions/Press",
 	"sap/ui/test/actions/EnterText",
-	"sap/ui/test/matchers/AggregationLengthEquals"
-], function(Opa5, Press, EnterText, AggregationLengthEquals) {
+	"sap/ui/test/matchers/AggregationLengthEquals",
+	"sap/ui/test/matchers/BindingPath"
+], function(Opa5, Press, EnterText, AggregationLengthEquals, BindingPath) {
 	"use strict";
 
 	Opa5.createPageObjects({
@@ -27,12 +28,15 @@ sap.ui.define([
 						errorMessage: "Was not able to find the control with the id searchField"
 					});
 				},
-				iPressList_list: function() {
+				iPressOnTheOrderWithTheID: function(sId) {
 					return this.waitFor({
-						id: "list",
+						controlType: "sap.m.ObjectListItem",
 						viewName: "Master",
+						matchers: new BindingPath({
+							path: "/SalesOrders('" + sId + "')"
+						}),
 						actions: new Press(),
-						errorMessage: "Was not able to find the control with the id list"
+						errorMessage: "No order with the id " + sId + " was found."
 					});
 				}
 			},

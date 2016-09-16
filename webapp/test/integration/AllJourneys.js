@@ -8,7 +8,8 @@ QUnit.config.autostart = false;
 sap.ui.require([
 	"sap/ui/test/Opa5",
 	"sap/ui/teched/appUnderTest/test/integration/pages/Common",
-	"sap/ui/teched/appUnderTest/test/integration/pages/Master"
+	"sap/ui/teched/appUnderTest/test/integration/pages/Master",
+	"sap/ui/teched/appUnderTest/test/integration/pages/Detail"
 ], function(Opa5, Common) {
 	"use strict";
 	Opa5.extendConfig({

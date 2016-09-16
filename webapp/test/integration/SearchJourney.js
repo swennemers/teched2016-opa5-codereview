@@ -9,6 +9,7 @@ sap.ui.define([
 		Given.iStartMyApp();
 
 		Then.onTheMasterView.theListShouldHaveTheGivenNumberOfOrders(3);
+		Then.onTheDetailView.iSeeTheTitle("Sales Order 5001656");
 	});
 
 	opaTest("Can find a single order", function(Given, When, Then) {
@@ -16,5 +17,11 @@ sap.ui.define([
 			.and.iTriggerTheSearch();
 
 		Then.onTheMasterView.theListShouldHaveTheGivenNumberOfOrders(1);
+	});
+
+	opaTest("Can navigate to an single order", function(Given, When, Then) {
+		When.onTheMasterView.iPressOnTheOrderWithTheID("5001658");
+
+		Then.onTheDetailView.iSeeTheTitle("Sales Order 5001658");
 	});
 });
