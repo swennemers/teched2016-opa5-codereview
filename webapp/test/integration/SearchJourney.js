@@ -11,4 +11,10 @@ sap.ui.define([
 		Then.onTheMasterView.theListShouldHaveTheGivenNumberOfOrders(3);
 	});
 
+	opaTest("Can find a single order", function(Given, When, Then) {
+		When.onTheMasterView.iEnterSeachTerm("58")
+			.and.iTriggerTheSearch();
+
+		Then.onTheMasterView.theListShouldHaveTheGivenNumberOfOrders(1);
+	});
 });

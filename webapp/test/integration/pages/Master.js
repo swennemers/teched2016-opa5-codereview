@@ -9,7 +9,7 @@ sap.ui.define([
 	Opa5.createPageObjects({
 		onTheMasterView: {
 			actions: {
-				iPressSearchField_searchField: function() {
+				iTriggerTheSearch: function() {
 					return this.waitFor({
 						id: "searchField",
 						viewName: "Master",
@@ -17,12 +17,12 @@ sap.ui.define([
 						errorMessage: "Was not able to find the control with the id searchField"
 					});
 				},
-				iEnterTextSearchField_searchField: function() {
+				iEnterSeachTerm: function(sTerm) {
 					return this.waitFor({
 						id: "searchField",
 						viewName: "Master",
 						actions: new EnterText({
-							text: "Text to enter in the control"
+							text: sTerm
 						}),
 						errorMessage: "Was not able to find the control with the id searchField"
 					});
