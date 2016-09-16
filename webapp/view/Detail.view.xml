@@ -1,0 +1,187 @@
+<mvc:View controllerName="sap.ui.teched.appUnderTest.controller.Detail"
+	xmlns:footerbar="sap.ushell.ui.footerbar"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:smartForm="sap.ui.comp.smartform"
+	xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns="sap.m">
+
+	<semantic:DetailPage
+		busy="{detailView>/busy}"
+		busyIndicatorDelay="{detailView>/delay}"
+		id="page" navButtonPress="onNavBack"
+		showNavButton="{device>/system/phone}"
+		title="{i18n>detailTitle}">
+
+		<semantic:content>
+
+			<!-- Object Header -->
+			<ObjectHeader
+				id="objectHeader"
+				responsive="false"
+				title="{i18n>objectHeaderTitle} {SalesOrderId}"
+				number="{parts: [{path: 'TotalAmount'}, {path: 'Currency'}],
+					type: 'sap.ui.model.type.Currency',
+					formatOptions: {
+						showMeasure: false
+					}
+				}"
+				numberUnit="{Currency}">
+
+				<attributes>
+					<ObjectAttribute
+						id="objectHeaderAttributePurchaseOrder"
+						text="{
+							parts:[{path:'PO'}],
+							formatter:'.formatter.formatPO'}" />
+
+					<ObjectAttribute
+						id="objectHeaderAttributeOrdered"
+						title="{i18n>objectHeaderAttributeOrdered}"
+						text="{path:'OrderDate',
+							type:'sap.ui.model.type.Date',
+							formatOptions: {
+								style: 'medium'}}"/>
+
+					<ObjectAttribute
+						id="objectHeaderAttributeRequested"
+						title="{i18n>objectHeaderAttributeRequested}"
+						text="{path:'RequestedDate',
+							type:'sap.ui.model.type.Date',
+							formatOptions: {
+								style: 'medium' }}"/>
+
+					<ObjectAttribute
+						id="objectHeaderAttributeShipTo"
+						title="{i18n>objectHeaderAttributeShipTo}"
+						text="{ShipToParty}"/>
+				</attributes>
+
+				<statuses>
+					<ObjectStatus
+						id="objectHeaderStatusEstimatedArrival"
+						title="{i18n>objectHeaderStatusEstimatedArrival}"
+						text="{path:'EstimatedArrival',
+							type:'sap.ui.model.type.Date',
+							formatOptions: {
+								style: 'medium' }}"/>
+
+					<ObjectStatus
+						id="objectHeaderStatusOverallStatusCode"
+						title="{i18n>objectHeaderStatusOverallStatusCode}"
+						text="{path:'OverallStatusCode',
+							formatter:'.formatter.formatNewStatusText'}"
+						state="{path:'OverallStatusCode',
+							formatter:'.formatter.formatNewStatus'}" />
+
+					<ObjectStatus
+						id="objectHeaderStatusShippingStatusCode"
+						title="{i18n>objectHeaderStatusShippingStatusCode}"
+						text="{path:'ShippingStatusCode',
+							formatter:'.formatter.formatNewStatusText'}"
+						state="{path:'ShippingStatusCode',
+							formatter:'.formatter.formatNewStatus'}" />
+				</statuses>
+
+			</ObjectHeader>
+
+			<!-- SmartForm -->
+			<smartForm:SmartForm
+				id="SmartFormSalesOrder"
+				title="Sales Order Details"
+				editTogglable="true"
+				editable="true"
+				entityType="SalesOrder">
+
+				<!-- General Data -->
+				<smartForm:Group
+					id="GroupGeneralData"
+					label="{i18n>smartFormGroup1}">
+
+					<smartForm:GroupElement
+						id="GroupElementGeneralDataType">
+						<smartField:SmartField value="{Type}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement
+						id="GroupElementGeneralDataSoldToParty">
+						<smartField:SmartField value="{SoldToParty}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement
+						id="GroupElementGeneralDataAddressStreet">
+						<smartField:SmartField value="{Address/Street}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement
+						id="GroupElementGeneralDataAddressCity">
+						<smartField:SmartField value="{Address/City}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement
+						id="GroupElementGeneralDataAddressZipCode">
+						<smartField:SmartField value="{Address/ZipCode}" />
+					</smartForm:GroupElement>
+
+				</smartForm:Group>
+
+				<!-- Contact Data -->
+				<smartForm:Group
+					id="GroupContactData"
+					label="{i18n>smartFormGroup2}">
+
+					<smartForm:GroupElement
+						id="GroupElementContactDataContactName">
+						<smartField:SmartField value="{ContactName}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement
+						id="GroupElementContactDataResponsibleName">
+						<smartField:SmartField value="{ResponsibleName}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement
+						id="GroupElementContactDataExternalReferenceNumber">
+						<smartField:SmartField value="{ExternalReferenceNumber}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement
+						id="GroupElementContactDataMobileNumber">
+						<smartField:SmartField value="{MobileNumber}" />
+					</smartForm:GroupElement>
+
+				</smartForm:Group>
+
+				<!-- Dates -->
+				<smartForm:Group
+					id="GroupDates"
+					label="{i18n>smartFormGroup3}">
+
+					<smartForm:GroupElement
+						id="GroupElementDatesRequestDeliveryDate">
+						<smartField:SmartField value="{RequestDeliveryDate}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement
+						id="GroupElementDatesPostingDate">
+						<smartField:SmartField value="{PostingDate}" />
+					</smartForm:GroupElement>
+
+					<smartForm:GroupElement
+						id="GroupElementDatesShippingStatus">
+						<smartField:SmartField value="{ShippingStatus}" />
+					</smartForm:GroupElement>
+
+				</smartForm:Group>
+
+			</smartForm:SmartForm>
+
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+	</semantic:DetailPage>
+</mvc:View>

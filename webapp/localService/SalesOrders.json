@@ -1,0 +1,97 @@
+[{
+	"__metadata": {
+		"id": "smartform.SmartForm/SalesOrders('5001656')",
+		"uri": "smartform.SmartForm/SalesOrders('5001656')",
+		"type": "sap.ui.rta.test.demo.SalesOrders"
+	},
+	"SalesOrderId": "5001656",
+	"Type": "Telesales",
+	"SoldToParty": "High Com",
+	"Address": {
+		"ZipCode": "DC 20002",
+		"City": "Washington",
+		"Street": "134 East Block"
+	},
+	"ContactName": "Ms. Julia Meyer",
+	"ResponsibleName": "Frank Overwood",
+	"ExternalReferenceNumber": "TFQ-062615-00",
+	"MobileNumber": "+1 202-548-7621",
+	"ShippingStatus": "Shipped",
+	"ModeOfTransport": "Standard",
+	"ShippingConditions": "Standard",
+	"ShipToParty": "High Com",
+	"TotalAmount": "19970.00",
+	"Currency": "EUR",
+	"PO": "TFQ-062615-00",
+	"OrderDate": "/Date(1435276800000)/",
+	"RequestedDate": "/Date(1435615200000)/",
+	"EstimatedArrival": "/Date(1435528800000)/",
+	"RequestDeliveryDate": "/Date(1435622400000)/",
+	"PostingDate": "/Date(1435276800000)/",
+	"ShippingStatusCode": "SH",
+	"OverallStatusCode": "CP"
+}, {
+	"__metadata": {
+		"id": "smartform.SmartForm/SalesOrders('5001657')",
+		"uri": "smartform.SmartForm/SalesOrders('5001657')",
+		"type": "sap.ui.rta.test.demo.SalesOrders"
+	},
+	"SalesOrderId": "5001657",
+	"Type": "Promotion",
+	"SoldToParty": "Cross Ltd.",
+	"Address": {
+		"ZipCode": "FL 32256",
+		"City": "Jacksonville",
+		"Street": "50 Lincoln Ave"
+	},
+	"ContactName": "Mr. Jeff Daniels",
+	"ResponsibleName": "Gert Tackaert",
+	"ExternalReferenceNumber": "",
+	"MobileNumber": "+1 231-586-8649",
+	"ShippingStatus": "In Process",
+	"ModeOfTransport": "Standard",
+	"ShippingConditions": "Standard",
+	"ShipToParty": "Cross Ltd.",
+	"TotalAmount": "4100.00",
+	"Currency": "EUR",
+	"PO": "",
+	"OrderDate": "/Date(1436054400000)/",
+	"RequestedDate": "/Date(1436997600000)/",
+	"EstimatedArrival": "/Date(1436997600000)/",
+	"RequestDeliveryDate": "/Date(1437004800000)/",
+	"PostingDate": "/Date(1436133600000)/",
+	"ShippingStatusCode": "IP",
+	"OverallStatusCode": "IP"
+}, {
+	"__metadata": {
+		"id": "smartform.SmartForm/SalesOrders('5001658')",
+		"uri": "smartform.SmartForm/SalesOrders('5001658')",
+		"type": "sap.ui.rta.test.demo.SalesOrders"
+	},
+	"SalesOrderId": "5001658",
+	"Type": "Telesales",
+	"SoldToParty": "Cards International",
+	"Address": {
+		"ZipCode": "NY 11219",
+		"City": "Brooklyn",
+		"Street": "3 High Street"
+	},
+	"ContactName": "Mr. Doug Kelly",
+	"ResponsibleName": "Gert Tackaert",
+	"ExternalReferenceNumber": "NPM-0124856-05",
+	"MobileNumber": "+1 231-635-6409",
+	"ShippingStatus": "Open",
+	"ModeOfTransport": "Standard",
+	"ShippingConditions": "Standard",
+	"ShipToParty": "Cards International",
+	"TotalAmount": "1985.00",
+	"Currency": "EUR",
+	"PO": "NPM-0124856-05",
+	"OrderDate": "/Date(1437602400000)/",
+	"RequestedDate": "/Date(1438041600000)/",
+	"EstimatedArrival": "/Date(1438041600000)/",
+	"RequestDeliveryDate": "/Date(1438041600000)/",
+	"PostingDate": "/Date(1437609600000)/",
+	"ShippingStatusCode": "OP",
+	"OverallStatusCode": "OP"
+}]

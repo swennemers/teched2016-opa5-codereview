@@ -1,0 +1,107 @@
+<mvc:View controllerName="sap.ui.teched.appUnderTest.controller.Master" 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic" 
+	xmlns="sap.m">
+
+	<semantic:MasterPage 
+		id="page" 
+		title="{masterView>/title}">
+
+		<semantic:subHeader>
+
+			<Bar id="headerBar">
+				<contentMiddle>
+					<SearchField id="searchField" 
+						search="onSearch" 
+						showRefreshButton="{= !${device>/support/touch} }" 
+						tooltip="{i18n>masterSearchTooltip}"
+						width="100%"></SearchField>
+				</contentMiddle>
+			</Bar>
+
+		</semantic:subHeader>
+
+		<semantic:content>
+
+			<PullToRefresh id="pullToRefresh" 
+				refresh="onRefresh" 
+				visible="{device>/support/touch}"/>
+			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
+
+			<List busyIndicatorDelay="{masterView>/delay}" 
+				growing="true" 
+				growingScrollToLoad="true" 
+				id="list"
+				items="{/SalesOrders}"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" 
+				noDataText="{masterView>/noDataText}" 
+				selectionChange="onSelectionChange"
+				updateFinished="onUpdateFinished">
+
+				<infoToolbar>
+
+					<Toolbar active="true" 
+						id="filterBar" 
+						press="onOpenViewSettings" 
+						visible="{masterView>/isFilterBarVisible}">
+
+						<Title id="filterBarLabel" 
+							text="{masterView>/filterBarLabel}"/>
+					</Toolbar>
+
+				</infoToolbar>
+
+				<items>
+
+					<ObjectListItem 
+						press="onSelectionChange" 
+						title="{i18n>masterTitleShort} {SalesOrderId}"
+						number="{parts: [{path: 'TotalAmount'}, {path: 'Currency'}],
+							type: 'sap.ui.model.type.Currency',
+							formatOptions: {
+								style: 'short',
+								decimals: 2,
+								shortDecimals: 1,
+								showMeasure: false
+							}
+						}"
+						numberUnit="{Currency}"
+						type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}">
+
+							<attributes>
+								<ObjectAttribute 
+									id=""
+									text="{parts:[{path:'PO'}], 
+										formatter:'.formatter.formatPO'}" />
+
+								 <ObjectAttribute 
+								 	text="{path:'OrderDate', 
+										type:'sap.ui.model.type.Date', 
+										formatOptions: { 
+											source: { 
+												pattern: 'yyyyMMdd' }, 
+												style: 'long' 
+											}
+										}">
+								</ObjectAttribute>
+							</attributes>
+
+								<secondStatus>
+									<ObjectStatus
+										text="{path:'ShippingStatusCode', 
+											formatter:'.formatter.formatNewStatusText'}"
+										state="{path:'ShippingStatusCode', 
+											formatter:'.formatter.formatNewStatus'}">
+									</ObjectStatus>
+								</secondStatus>
+
+					</ObjectListItem>
+
+				</items>
+
+			</List>
+		</semantic:content>
+	</semantic:MasterPage>
+
+</mvc:View>

@@ -1,0 +1,16 @@
+<mvc:View 
+	controllerName="sap.ui.teched.appUnderTest.controller.BaseController" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m">
+
+	<MessagePage
+		id="page"
+		description=""
+		icon="{sap-icon://product}" 
+		navButtonPress="onNavBack" 
+		showNavButton="{device>/system/phone}"
+		text="{i18n>noObjectsAvailableText}" 
+		title="{i18n>notAvailableViewTitle}">
+	</MessagePage>
+
+</mvc:View>

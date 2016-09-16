@@ -1,0 +1,11 @@
+<mvc:View 
+	busy="{appView>/busy}" 
+	busyIndicatorDelay="{appView>/delay}" 
+	controllerName="sap.ui.teched.appUnderTest.controller.App"
+	displayBlock="true" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m">
+
+		<SplitApp id="idAppControl"/>
+
+</mvc:View>
