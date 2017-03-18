@@ -120,7 +120,8 @@ sap.ui.require([
 - Where do the iStartMyApp and onTheMasterView.theListShouldHaveTheGivenNumberOfOrders functions come from?
 - Arrangement: 
   - Update the AllJourneys.js
-   ``` 
+
+``` 
 sap.ui.require([
 	"sap/ui/test/Opa5",
 	"sap/ui/teched/appUnderTest/test/integration/pages/Common"
@@ -130,11 +131,13 @@ sap.ui.require([
 		arrangements: new Common(),
 		viewNamespace: "sap.ui.teched.appUnderTest.view."
 	});
-  ```
+```
+
   - New folder /test/integration/pages
   - New file /test/integration/pages/Common.js
    - arrangement iStartMyApp
    - Load the component, Opa5 could also open an html file in an iframe, but component is faster (newer)
+
   ```
   sap.ui.define([
 		'sap/ui/test/Opa5'
@@ -274,8 +277,9 @@ sap.ui.require([
 		            }
 		        }
 		});
-});
-       ```
+	});
+    ```
+
 ### Conclusion
  - Summarize
  - Prefer to write plain Unit tests!
