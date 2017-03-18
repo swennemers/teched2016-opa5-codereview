@@ -289,4 +289,11 @@ sap.ui.require([
  - ```.and.iTeardownMyUIComponent()``` in ```SearchJourney.js```
    - Setup and Teardown of the app for each Journey
  - Update the initial test with an assertion on the detail page title to see the benefit and reuse of page objects.
- - Code Coverage
+ - Code Coverage (currently on when starting the component), get a feeling how trustworthy tests are, cover only our app (not framework):
+
+```
+if (window.blanket){
+	window.blanket.options("sap-ui-cover-only", "[sap/ui/teched/appUnderTest]");
+	window.blanket.options("sap-ui-cover-never", "[sap/ui/teched/appUnderTest/test]");
+}
+```
